@@ -1,46 +1,42 @@
-import StatusPanel from "../features/health/StatusPanel";
+import { siteTagline } from "../config/site";
+import { ButtonLink } from "../components/ui/Button";
+import Container from "../components/ui/Container";
+import Eyebrow from "../components/ui/Eyebrow";
+import ImageFrame from "../components/ui/ImageFrame";
+import Section from "../components/ui/Section";
+import { usePageTitle } from "../lib/usePageTitle";
 
+/**
+ * DEVELOPMENT PLACEHOLDER. The real homepage (hero photograph, collections,
+ * services, Instagram feed, testimonials) is built in later Phase 1 batches.
+ */
 export default function HomePage() {
+  usePageTitle();
+
   return (
-    <div className="flex min-h-screen flex-col">
-      <header className="mx-auto flex w-full max-w-6xl items-baseline justify-between px-6 py-8 md:px-10">
-        <span className="font-display text-xl tracking-tight text-brand-wine">
-          CocoNaesh <span className="italic">Visuals</span>
-        </span>
-        <span className="text-xs tracking-widest text-charcoal/60 uppercase">
-          Development build
-        </span>
-      </header>
-
-      <main className="mx-auto w-full max-w-6xl flex-1 px-6 pb-20 md:px-10">
-        <div className="grid gap-16 pt-10 md:grid-cols-[1.3fr_1fr] md:pt-20">
-          <div>
-            <p className="text-xs tracking-widest text-brand-plum uppercase">
-              Phase 0 · Foundation
-            </p>
-            <h1 className="mt-6 font-display text-5xl leading-[1.05] tracking-tight text-brand-wine md:text-7xl">
-              The foundation
-              <br />
-              is <span className="italic text-brand-plum">standing.</span>
-            </h1>
-            <p className="mt-8 max-w-md text-lg leading-relaxed text-charcoal/80">
-              This page only proves that the React frontend, the Express API and
-              PostgreSQL are talking to each other. The photography itself
-              arrives in Phase 1.
-            </p>
-          </div>
-
-          <div className="md:pt-6">
-            <StatusPanel />
+    <Section className="pt-10 md:pt-16">
+      <Container className="grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:items-end">
+        <div>
+          <Eyebrow>Development placeholder</Eyebrow>
+          <h1 className="type-display mt-6 text-brand-wine">
+            CocoNaesh <span className="text-brand-plum italic">Visuals</span>
+          </h1>
+          <p className="type-lead mt-8 max-w-md text-muted">{siteTagline}</p>
+          <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-5">
+            <ButtonLink to="/booking">Book a session</ButtonLink>
+            <ButtonLink to="/portfolio" variant="text">
+              View portfolio
+            </ButtonLink>
           </div>
         </div>
-      </main>
 
-      <footer className="border-t border-charcoal/15">
-        <div className="mx-auto w-full max-w-6xl px-6 py-6 text-xs text-charcoal/60 md:px-10">
-          © {new Date().getFullYear()} CocoNaesh Visuals
-        </div>
-      </footer>
-    </div>
+        <ImageFrame
+          alt="Hero photograph placeholder"
+          aspect="portrait"
+          caption="The hero photograph will be supplied by the owner."
+          priority
+        />
+      </Container>
+    </Section>
   );
 }

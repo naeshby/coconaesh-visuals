@@ -1,21 +1,26 @@
-import { Link } from "react-router-dom";
+import { ButtonLink } from "../components/ui/Button";
+import Container from "../components/ui/Container";
+import Eyebrow from "../components/ui/Eyebrow";
+import Section from "../components/ui/Section";
+import { usePageTitle } from "../lib/usePageTitle";
 
 export default function NotFoundPage() {
+  usePageTitle("Page not found");
+
   return (
-    <main className="mx-auto flex min-h-screen max-w-3xl flex-col justify-center px-6">
-      <p className="text-xs tracking-widest text-brand-plum uppercase">404</p>
-      <h1 className="mt-4 font-display text-5xl tracking-tight text-brand-wine">
-        This frame is <span className="italic">empty.</span>
-      </h1>
-      <p className="mt-6 text-charcoal/80">
-        The page you are looking for does not exist.
-      </p>
-      <Link
-        to="/"
-        className="mt-8 w-fit border-b border-brand-wine pb-1 text-sm tracking-wide text-brand-wine uppercase"
-      >
-        Back to the homepage
-      </Link>
-    </main>
+    <Section>
+      <Container>
+        <Eyebrow>404</Eyebrow>
+        <h1 className="type-display mt-6 text-brand-wine">
+          This frame is <span className="text-brand-plum italic">empty.</span>
+        </h1>
+        <p className="type-lead mt-8 max-w-md text-muted">
+          The page you are looking for does not exist.
+        </p>
+        <ButtonLink to="/" variant="text" className="mt-10">
+          Back to the homepage
+        </ButtonLink>
+      </Container>
+    </Section>
   );
 }

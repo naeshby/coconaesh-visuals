@@ -14,8 +14,64 @@
   --color-cream: #fbf6ef;
   --color-charcoal: #1c1a19;
 
+  /* Phase 1 additions ------------------------------------------------- */
+  /* Secondary text. About 6.6:1 on cream, so it is safe for small text. */
+  --color-muted: #5c5755;
+  /* Slightly deeper cream for empty image frames and quiet surfaces. */
+  --color-cream-deep: #f1e6d6;
+  /* Brand rose and pink are for large display type and decoration only.
+     They do not reach 4.5:1 on cream, so never use them for small text. */
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+  /* End of Phase 1 additions ------------------------------------------ */
+
   --font-display: "Fraunces Variable", Georgia, "Times New Roman", serif;
   --font-sans: "Inter Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* Layout and typography utilities (Phase 1) ---------------------------- */
+
+/* One content width and one horizontal gutter for the whole site. */
+@utility container-page {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 3rem);
+}
+
+/* Vertical rhythm between page sections. */
+@utility section-y {
+  padding-block: clamp(4rem, 9vw, 8rem);
+}
+
+/* Hero-scale headline. */
+@utility type-display {
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 1rem + 7vw, 6.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+}
+
+/* Section headline. */
+@utility type-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 1rem + 3.5vw, 3.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+/* Introductory paragraph. */
+@utility type-lead {
+  font-size: clamp(1.0625rem, 1rem + 0.35vw, 1.3125rem);
+  line-height: 1.65;
+}
+
+/* Small uppercase label. */
+@utility type-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 }
 
 @layer base {
@@ -30,6 +86,11 @@
   :focus-visible {
     outline: 2px solid var(--color-brand-plum);
     outline-offset: 3px;
+  }
+
+  /* Plum is too dark to see on a wine background. */
+  .surface-dark :focus-visible {
+    outline-color: var(--color-brand-blush);
   }
 
   ::selection {

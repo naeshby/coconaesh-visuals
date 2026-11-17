@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Environment & secrets (only the .example file is committed)
+.env
+.env.*
+!.env.example
+
+# Build output
+dist/
+build/
+coverage/
+*.tsbuildinfo
+
+# Generated Prisma client (recreated by `pnpm db:generate`)
+apps/api/src/generated/
+
+# Vite / tooling caches
+.vite/
+.cache/
+.eslintcache
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Editor / OS
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+.DS_Store
+Thumbs.db
+
+# Photographs and runtime storage: never commit client or original images
+storage/originals/*
+storage/derivatives/*
+storage/temporary/*
+!storage/originals/.gitkeep
+!storage/derivatives/.gitkeep
+!storage/temporary/.gitkeep
+
+# Database dumps and backups
+*.sql
+*.dump
+backups/

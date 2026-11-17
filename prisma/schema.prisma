@@ -1,0 +1,26 @@
+// CocoNaesh Visuals: Prisma schema
+//
+// PHASE 0 PLACEHOLDER:
+// `SystemCheck` exists ONLY to prove that migrations and database
+// read/write work end to end. It is NOT part of the business model
+// and will be removed when the real models are introduced.
+
+generator client {
+  provider     = "prisma-client"
+  // Path is relative to this file (prisma/ → apps/api/src/generated/prisma).
+  output       = "../apps/api/src/generated/prisma"
+  moduleFormat = "esm"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model SystemCheck {
+  id        String   @id @default(uuid()) @db.Uuid
+  note      String
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+
+  @@map("system_checks")
+}

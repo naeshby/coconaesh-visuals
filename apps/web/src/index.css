@@ -1,0 +1,51 @@
+@import "@fontsource-variable/fraunces";
+@import "@fontsource-variable/inter";
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette (from the master specification) */
+  --color-brand-blush: #f9dbbd;
+  --color-brand-pink: #ffa5ab;
+  --color-brand-rose: #da627d;
+  --color-brand-plum: #a53860;
+  --color-brand-wine: #450920;
+
+  /* Foundation: cream and charcoal carry the design, brand colours are accents */
+  --color-cream: #fbf6ef;
+  --color-charcoal: #1c1a19;
+
+  --font-display: "Fraunces Variable", Georgia, "Times New Roman", serif;
+  --font-sans: "Inter Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@layer base {
+  html {
+    background-color: var(--color-cream);
+    color: var(--color-charcoal);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand-plum);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background-color: var(--color-brand-blush);
+    color: var(--color-brand-wine);
+  }
+}
+
+/* Reduced motion support (required by the specification) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

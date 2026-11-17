@@ -1,0 +1,22 @@
+{
+  "name": "coconaesh-visuals",
+  "version": "0.1.0",
+  "private": true,
+  "description": "CocoNaesh Visuals: photography business website and client management platform",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev:db": "docker compose up -d postgres",
+    "dev:db:stop": "docker compose stop postgres",
+    "dev:db:reset": "docker compose down -v && docker compose up -d postgres",
+    "dev:api": "pnpm --filter @coconaesh/api dev",
+    "dev:web": "pnpm --filter @coconaesh/web dev",
+    "db:generate": "pnpm --filter @coconaesh/api db:generate",
+    "db:migrate": "pnpm --filter @coconaesh/api db:migrate",
+    "db:studio": "pnpm --filter @coconaesh/api db:studio",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test",
+    "build": "pnpm -r build"
+  }
+}

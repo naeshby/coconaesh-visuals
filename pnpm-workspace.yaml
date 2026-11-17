@@ -1,0 +1,11 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+
+# pnpm blocks dependency install scripts unless a package is allowed here.
+# Only these packages may run theirs.
+allowBuilds:
+  esbuild: true
+  prisma: true
+  "@prisma/client": true
+  "@prisma/engines": true

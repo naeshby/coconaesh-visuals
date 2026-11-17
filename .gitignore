@@ -46,3 +46,6 @@ storage/temporary/*
 *.sql
 *.dump
 backups/
+
+# ...but NEVER ignore Prisma migrations (they are source code)
+!prisma/migrations/**/*.sql
